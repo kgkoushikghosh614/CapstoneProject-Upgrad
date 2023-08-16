@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upg-loadme-deployment
+spec:
+  replicas: 3 # Number of replicas
+  selector:
+    matchLabels:
+      app: upg-loadme
+  template:
+    metadata:
+      labels:
+        app: upg-loadme
+    spec:
+      containers:
+        - name: upg-loadme
+          image: 109586782073.dkr.ecr.us-east-1.amazonaws.com/capstoneproject/upg-loadme-repo:latest
+          ports:
+            - containerPort: 8081

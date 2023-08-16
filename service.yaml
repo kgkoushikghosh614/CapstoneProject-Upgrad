@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: upg-loadme-service
+spec:
+  selector:
+    app: upg-loadme
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8081
+  type: LoadBalancer
